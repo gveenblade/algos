@@ -1,0 +1,22 @@
+8
+2 1
+2 4
+3 3
+4 2
+4 5
+10 5
+7 5
+6 3
+
+
+
+6
+data 5 stack queue set map dp
+heap 3 cpp stack queue
+dfs 2 cpp stack
+bfs 2 cpp queue
+ABC 3 A B C
+data2 8 stack queue set map dp A new kk
+
+
+

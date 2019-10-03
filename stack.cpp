@@ -1,33 +1,85 @@
-#include<iostream>
-#include<stack>
+#include <bits/stdc++.h>
 using namespace std;
+
+struct Node
+{
+	int value;
+	Node *prev;
+	Node(int x)
+	{
+		value = x;
+		prev = nullptr;
+	}
+};
+
+struct Stack
+{
+	private:
+		Node *head = nullptr;
+		int cnt = 0;
+	public:
+		void push(int x)
+		{
+			Node * node = new Node(x);
+			node->prev = head;
+			head = node;
+			cnt++;
+		}
+
+		int back() { return head->value; }
+
+		void pop()
+		{
+			if (cnt == 1)
+				head = nullptr;
+			else
+				head = head->prev;
+			cnt--;
+		}
+
+		void clear()
+		{
+			head = nullptr;
+			cnt = 0;
+		}
+
+		int size() { return cnt; }
+
+		bool empty() { return cnt == 0; }
+};
+
 int main()
 {
-	stack <int> ss;
+	Stack st;
 	string s;
-	while(cin>>s)
+	while (true)
 	{
-		if(s=="push")
+		cin >> s;
+		if (s == "push")
 		{
 			int n;
-			cin>>n;
-			ss.push(n);
-			cout<<"ok"<<endl;
-		 } 
-		 else if(s=="pop")
+			cin >> n;
+			st.push(n);
+			cout << "ok\n";
+		}
+		else if (s == "pop")
 		{
-			
-			ss.pop();
-			cout<<endl;
-		 }
-		/* else if(s=="back")
+			cout << st.back() << endl;
+			st.pop();
+		}
+		else if (s == "back")
+			cout << st.back() << endl;
+		else if (s == "size")
+			cout << st.size() << endl;
+		else if (s == "clear")
 		{
-			
-			cout<<ss.<<endl;
-		 }  */
-		 else if(s=="size")
-		 {
-		 	cout<<ss.size()<<endl;
-		 }
+			st.clear();
+			cout << "ok\n";
+		}
+		else
+		{
+			cout << "bye\n";
+			break;
+		}
 	}
 }
